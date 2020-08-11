@@ -1,0 +1,12 @@
+bower
+uploaded
+.DS_Store
+css/*.css
+for_import/backgrounds/
+for_import/cards/
+for_import/*.db
+img/unused/
+less/*_theme_prod.less
+less/*_theme.less
+less/local.less
+less/prod.less

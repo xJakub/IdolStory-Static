@@ -1,0 +1,472 @@
+/******************************************/
+/* Import */
+
+@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i&display=swap&subset=latin-ext,vietnamese');
+
+/******************************************/
+/* Tools */
+
+.cuteform-one-line() {
+    display: flex;
+    justify-content: space-between;
+    img.cuteform-elt {
+        align-self: center;
+    }
+}
+
+/******************************************/
+/* Bootstrap defaults */
+
+.text-muted {
+    color: #aaa;
+}
+
+.about-table, .collection-table {
+    .text-muted {
+        color: #aaa;
+    }
+}
+
+/******************************************/
+/* MagiCircles */
+
+
+/******************************************/
+/* All pages */
+
+body {
+    font-family:'Muli', 'Century Gothic', sans-serif;
+    font-size: 17px;
+}
+
+[data-cuteform-val=""] {
+    line-height: 0px;
+}
+
+#sidebar-wrapper {
+    font-size: 0.9em;
+    label {
+        font-weight: normal;
+    }
+    .form-control [class^=flaticon] {
+        font-size: 1.2em;
+    }
+}
+
+@gradient1: #FAF97A;
+@gradient2: #F7CCC4;
+
+.navbar.navbar-fixed-top {
+    background-image: linear-gradient(280deg, @accentColor, @secondaryColor, @mainColor, @secondaryColor, @accentColor);
+    border-color: fade(@mainColor, 50%);
+    .navbar-toggle.collapsed {
+        border-color: transparent;
+    }
+}
+
+#navBarIDDropDowngames + .dropdown-menu .dropdown-header {
+    &:first-child {
+        margin-top: 5px;
+    }
+    padding-right: 80px;
+    font-size: 1.1em;
+    font-weight: bold;
+    background: #eee;
+    img, [class^="flaticon"] {
+        text-align: center;
+        font-size: 28px;
+        width: 40px;
+        height: 40px;
+        margin: -8px 0;
+        margin-right: -60px;
+        float: right;
+    }
+}
+#navBarIDDropDownallstars {
+    img {
+        height: 30px;
+        margin: -9px 0 -5px 0;
+        border-radius: 10px;
+    }
+}
+
+/******************************************/
+/* Generic names, appear on multiple pages */
+
+/* Astrological sign */
+
+#id_i_astrological_sign + .cuteform .cuteform-elt:not([data-cuteform-val=""]) {
+    background-color: fade(white, 80%);
+    border-radius: 8px;
+    padding: 3px;
+    width: 22px;
+}
+
+/* Modal: idol, unit or sub unit */
+
+#cuteform-modal img.cuteform-elt {
+    &[data-cuteform-val^="i_unit-"], &[data-cuteform-val^="i_subunit-"] {
+        height: 70px;
+        border-radius: 0;
+        &.cuteform-selected {
+            border-radius: 30px;
+            padding: 10px;
+        }
+    }
+}
+
+/* Modal: favorite character */
+
+#cuteform-modal [data-cuteform-name^="id_favorite_character"] {
+    img.cuteform-elt:not([data-cuteform-val=""]) {
+        height: auto;
+        width: 10%;
+        box-sizing: border-box;
+        border-radius: 0;
+        padding: 5px;
+        &.cuteform-selected {
+            border-radius: 30px;
+        }
+    }
+}
+
+/******************************************/
+/* Single pages */
+
+/* Index */
+
+.current-activity_list[class*="shortcut-"], .current-index {
+    //background-attachment: fixed;
+    //background-image: linear-gradient(90deg, darken(@gradient1, 5%), darken(@gradient2, 5%));
+    .home-wrapper.right.with-ribbon .index-not-authenticated header .home-site-logo {
+        transform: rotate(-4deg)
+    }
+    .home-wrapper.left.with-ribbon .index-not-authenticated header .home-site-logo {
+        transform: rotate(4deg)
+    }
+}
+
+body.homepage {
+    @media (min-width: 992px) {
+            // All idols transparent
+            .home-wrapper .home-foreground img[src*="homepage/all_idols_transparent.png"] {
+                width: 115%;
+                left: -6%;
+            }
+            // Transparent for idols
+            .home-wrapper .home-foreground img[src*="/idol/"] {
+                width: 150%;
+                top: 90%;
+            }
+            .home-wrapper-not-authenticated .home-foreground img[src*="/idol/"] {
+                top: 50%;
+            }
+            .home-wrapper.right .home-foreground img[src*="/idol/"] {
+                left: -3%;
+    	    }
+            .home-wrapper.left .home-foreground img[src*="/idol/"] {
+                left: -45%;
+            }
+            // Transparent for cards
+            .home-wrapper .home-foreground img[src*="/card/transparent/"] {
+                width: 150%;
+                top: 65%;
+            }
+            .home-wrapper-not-authenticated .home-foreground img[src*="/card/transparent/"] {
+                top: 45%;
+            }
+            .home-wrapper.right .home-foreground img[src*="/card/transparent/"] {
+                left: -3%;
+    	    }
+            .home-wrapper.left .home-foreground img[src*="/card/transparent/"] {
+                left: -45%;
+            }
+        }
+}
+// .current-activity_list[class*="shortcut-"] .home-wrapper.right.with-ribbon header, .current-index
+
+/******************************************/
+/* MagiCollections */
+
+/* Profile */
+
+// Make favorite characters images bigger
+.profile-tabs {
+    a[href^="/idol/"] img {
+        height: 45px;
+        width: auto;
+        margin-bottom: -21px;
+    }
+}
+
+/* Idol */
+
+[data-item="idol"] {
+    .idol-image {
+        border-radius: 50%;
+    }
+}
+
+/* Voice actresses */
+
+[data-item="voiceactress"] {
+    .voiceactress-wrapper {
+        display: inline-block;
+        position: relative;
+    }
+    .mini-idol {
+        position: absolute;
+        right: -5%;
+        top: -5%;
+        width: 30%;
+        border-radius: 50%;
+    }
+    .voiceactress-image {
+        border-radius: 50%;
+        border: 1px solid #ccc;
+    }
+}
+
+/* Card */
+
+.per_statistic(@color) {
+    background-color: @color;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+    min-width: unset!important;
+    max-width: unset!important;
+}
+
+tr[data-field="statistics"] {
+    table, .panel-body {
+        img[src*="/statistic/stamina.png"] { .per_statistic(#64CC73); }
+        img[src*="/statistic/appeal.png"] { .per_statistic(#FB7EAA); }
+        img[src*="/statistic/technique.png"] { .per_statistic(#FBC44B); }
+    }
+    .panel {
+        margin: 10px;
+        text-align: center;
+    }
+}
+
+tr[data-field^="appeal"] td:first-child img { .per_statistic(#FB7EAA) }
+tr[data-field^="stamina"] td:first-child img { .per_statistic(#64CC73) }
+tr[data-field^="technique"] td:first-child img { .per_statistic(#FBC44B) }
+
+.allstars-card-image[src*="/card/icon/"],
+.allstars-card-image[src*="/img/defaults/default_icon.png"],
+.allstars-card-image[src*="/card/transparent/"] {
+    max-width: 50%;
+}
+
+.table-curved {
+    border-collapse: separate;
+}
+.table-curved {
+    border: solid #ccc 1px;
+    border-radius: 10px;
+}
+.table-curved td, .table-curved th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+.table-curved tr > *:first-child {
+    border-left: 0px;
+}
+.table-curved tr:first-child > * {
+    border-top: 0px;
+}
+
+[data-cuteform-name="id_skill_category"],
+[data-cuteform-name="id_passive_ability_category"],
+[data-cuteform-name="id_show_ability_category"] {
+    img.cuteform-elt:not([data-cuteform-val=""]) {
+        border-radius: 4px;
+    }
+}
+
+
+/* /\* Leaderboard *\/ */
+
+/* .leaderboard-account { */
+/*     display: block; */
+/*     padding: 30px 20px; */
+/*     border-radius: 10px; */
+/*     background: no-repeat center top; */
+/*     background-size: 101%; */
+/*     border: 2px solid fade(@SmileColor, 10%); */
+/*     color: white; */
+/*     -webkit-text-stroke: 1px fade(@SmileColor, 30%); */
+/*     text-shadow: -1px 4px 0 fade(@SmileColor, 30%); */
+/*     h3.username { */
+/*         font-weight: bold; */
+/*         font-size: 3em; */
+/*     } */
+/*     h3.rank { */
+/*         font-size: 80px; */
+/*         line-height: 100px; */
+/*     } */
+/* } */
+
+/* .songwriters-details { */
+/*     display: inline-block; */
+/*     text-align: left; */
+/* } */
+
+/* .idol-small-image { */
+/*     display: inline-block; */
+/*     max-height: 5em !important; */
+/*     max-width: 5em !important; */
+/* } */
+
+/* /\* Cards *\/ */
+
+/* .top-item img.card-image { */
+/*     max-width: 50%; */
+/*     @radius: 8px; */
+/*     &:first-child { */
+/*         border-top-left-radius: @radius; */
+/*         border-bottom-left-radius: @radius; */
+/*     } */
+/*     &:last-child { */
+/*         border-top-right-radius: @radius; */
+/*         border-bottom-right-radius: @radius; */
+/*     } */
+/* } */
+
+/* [data-cuteform-name="id_i_rarity"] img.cuteform-elt:not([data-cuteform-val=""]) { */
+/*     margin: 1px; */
+/*     width: 21px; */
+/*     border-radius: 10px; */
+/* } */
+
+/* [data-cuteform-name="id_i_attribute"] img.cuteform-elt:not([data-cuteform-val=""]) { */
+/*     width: 25px; */
+/* } */
+
+/* [data-cuteform-name="id_i_skill_type"] .cuteform-elt:not([data-cuteform-val=""]) { */
+/*     margin: 0 1px; */
+/* } */
+
+/* [data-cuteform-name="id_card_type"] .cuteform-elt:not([data-cuteform-val=""]) { */
+/*     margin: 0 -2.8px; */
+/*     &.cuteform-selected { */
+/*         position: relative; */
+/*         z-index: 200; */
+/*     } */
+/* } */
+
+/* span[data-idol-type] { */
+/*     margin: 0 10px; */
+/*     display: inline-block; */
+/*     color: white; */
+/*     font-weight: bold; */
+/*     font-size: 1.8em; */
+/*     position: relative; */
+/*     background: transparent; */
+/*     z-index: 0; */
+/*     -webkit-text-stroke: 1px #49A6A6; */
+/*     letter-spacing: -3px; */
+/* } */
+
+/* span[data-idol-type]:before { */
+/*       content: attr(title); */
+/*       position: absolute; */
+/*       -webkit-text-stroke: 5px #49A6A6; */
+/*       left: 0; */
+/*       z-index: -1; */
+/*       letter-spacing: -3px; */
+/*       @shadowColor: #45D9AD; */
+/*       text-shadow: */
+/*       4px 4px 0 @shadowColor, */
+/*       6px 6px 0 black, */
+/*       -1px -1px 0 @shadowColor, */
+/*       1px -1px 0 @shadowColor, */
+/*       -1px  1px 0 @shadowColor, */
+/*       1px  1px 0 @shadowColor; */
+/* } */
+
+/* /\* Events *\/ */
+
+/* [class$="event-info"] [data-field$="_cards"] { */
+/*     td:last-child { */
+/*         width: 500px; */
+/*         a { */
+/*             .a-nodifference(); */
+/*         } */
+/*         img { */
+/*             margin: 5px; */
+/*             width: 100px; */
+/*         } */
+/*     } */
+/* } */
+
+/* /\* ... todo *\/ */
+
+/* #id_i_astrological_sign + .cuteform { */
+/*     .cuteform-elt:not([data-cuteform-val=""]) { */
+/* 	background-color: fade(white, 80%); */
+/* 	border-radius: 8px; */
+/* 	padding: 3px; */
+/* 	width: 22px; */
+/* 	&.cuteform-selected { */
+/* 	    background-color: white; */
+/* 	} */
+/*     } */
+/* } */
+
+/* .song-margin { */
+/*    margin-top: 1em; */
+/* } */
+
+/* .top-item img { */
+/*    max-height: 30em; */
+/* } */
+
+/* .under-top { */
+/*     display: inline-block; */
+/*     max-height: 4em !important; */
+/* } */
+
+/* .under-top-row{ */
+/*     display: block; */
+/*     margin: .25em; */
+/*     text-align: center; */
+/*     color: #777777; */
+/* } */
+
+/* .card-statistics { */
+/* 	padding: 0; */
+/* 	padding-top: 20px; */
+/* 	.btn-group, .tab-content { */
+/* 	    margin: auto; */
+/* 	    width: 100%; */
+/* 	    max-width: 800px; */
+/* 	} */
+/* 	.btn-group { */
+/* 	    margin-bottom: 20px; */
+/* 	} */
+/* 	.tab-content { */
+/* 	    text-align: left; */
+/* 	} */
+/* } */
+
+/* .smile{ */
+/*     background-color: @SmileColor */
+/* } */
+/* .pure{ */
+/*     background-color: @PureColor */
+/* } */
+/* .cool{ */
+/*     background-color: @CoolColor */
+/* } */
+/* .all{ */
+/*     background-color: @AllColor */
+/* } */
+
+/* .top-item img{ */
+/* bottom: 10px; */
+/* right: 12px; */
+/* } */
