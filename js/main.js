@@ -136,25 +136,54 @@ function collectible_show_icon() {
 // *****************************************
 // Seasons
 
+// Rina boards
+// function aprilFoolsTakeOverDivs() {
+//     // Logo
+//     $('.home-site-logo img').prop('src', 'https://i.imgur.com/viUyTyW.png');
+//     // Homepage art
+//     let arts = [
+//         {
+//             'url': 'https://i.imgur.com/w8N1kxP.png',
+//             'gradient': true,
+//             'side': 'left',
+//             'position': { 'size': '150%', 'y': '40%', 'x': '100%' },
+//         },
+//         {
+//             'url': 'https://i.imgur.com/w8N1kxP.png',
+//             'gradient': true,
+//             'side': 'right',
+//             'position': { 'size': '150%', 'y': '40%', 'x': '0%' },
+//         },
+//     ];
+//     setHomepageArt(arts[Math.floor(Math.random() * arts.length)]);
+// }
+
+// Costume desginers
 function aprilFoolsTakeOverDivs() {
-    // Logo
-    $('.home-site-logo img').prop('src', 'https://i.imgur.com/viUyTyW.png');
     // Homepage art
     let arts = [
-        {
-            'url': 'https://i.imgur.com/w8N1kxP.png',
-            'gradient': true,
-            'side': 'left',
-            'position': { 'size': '150%', 'y': '40%', 'x': '100%' },
-        },
-        {
-            'url': 'https://i.imgur.com/w8N1kxP.png',
-            'gradient': true,
-            'side': 'right',
-            'position': { 'size': '150%', 'y': '40%', 'x': '0%' },
-        },
+        'https://i.idol.st/static/aprilfools/aprilfools.png',
+        'https://i.idol.st/static/aprilfools/aprilfools1.png',
+        'https://i.idol.st/static/aprilfools/aprilfools10.png',
+        'https://i.idol.st/static/aprilfools/aprilfools11.png',
+        'https://i.idol.st/static/aprilfools/aprilfools12.png',
+        'https://i.idol.st/static/aprilfools/aprilfools2.png',
+        'https://i.idol.st/static/aprilfools/aprilfools3.png',
+        'https://i.idol.st/static/aprilfools/aprilfools4.png',
+        'https://i.idol.st/static/aprilfools/aprilfools5.png',
+        'https://i.idol.st/static/aprilfools/aprilfools6.png',
+        'https://i.idol.st/static/aprilfools/aprilfools7.png',
+        'https://i.idol.st/static/aprilfools/aprilfools8.png',
+        'https://i.idol.st/static/aprilfools/aprilfools9.png',
     ];
-    setHomepageArt(arts[Math.floor(Math.random() * arts.length)]);
+    let random_art = arts[Math.floor(Math.random() * arts.length)];
+    setHomepageArt({
+        'url': random_art,
+        'gradient': true,
+        'side': 'left',
+        'position': { 'size': '120%', 'y': '40%', 'x': '175%' },
+        'about_url': random_art,
+    });
 }
 
 // *****************************************
