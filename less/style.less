@@ -57,10 +57,21 @@ body {
 @gradient2: #F7CCC4;
 
 .navbar.navbar-fixed-top {
-    background-image: linear-gradient(280deg, @accentColor, @secondaryColor, @mainColor, @secondaryColor, @accentColor);
-    border-color: fade(@mainColor, 50%);
     .navbar-toggle.collapsed {
         border-color: transparent;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .navbar.navbar-fixed-top {
+        background-image: linear-gradient(280deg, @accentColor, @secondaryColor, @mainColor, @secondaryColor, @accentColor);
+        border-color: fade(@mainColor, 50%);
+    }
+}
+@media (max-width: @screen-xs-max) {
+    .navbar-header {
+        background-image: linear-gradient(280deg, @accentColor, @secondaryColor, @mainColor, @secondaryColor, @accentColor);
+        border-color: fade(@mainColor, 50%);
     }
 }
 
@@ -239,7 +250,10 @@ body.homepage {
     max-width: unset!important;
 }
 
-tr[data-field="statistics"] {
+.flex-tr[data-field="statistics"] {
+    table td:first-child {
+        width: 60px;
+    }
     table, .panel-body {
         img[src*="/statistic/stamina.png"] { .per_statistic(#64CC73); }
         img[src*="/statistic/appeal.png"] { .per_statistic(#FB7EAA); }
@@ -251,9 +265,9 @@ tr[data-field="statistics"] {
     }
 }
 
-tr[data-field^="appeal"] td:first-child img { .per_statistic(#FB7EAA) }
-tr[data-field^="stamina"] td:first-child img { .per_statistic(#64CC73) }
-tr[data-field^="technique"] td:first-child img { .per_statistic(#FBC44B) }
+.flex-tr[data-field^="appeal"] .flex-td:first-child img { .per_statistic(#FB7EAA) }
+.flex-tr[data-field^="stamina"] .flex-td:first-child img { .per_statistic(#64CC73) }
+.flex-tr[data-field^="technique"] .flex-td:first-child img { .per_statistic(#FBC44B) }
 
 .allstars-card-image[src*="/card/icon/"],
 .allstars-card-image[src*="/img/defaults/default_icon.png"],

@@ -13,46 +13,6 @@
 // *****************************************
 
 // *****************************************
-// Song
-
-function loadSong() {
-    // Toggle lyrics + load iTunes
-    $('.item-info.song-info').each(function () {
-        let song = $(this);
-        if (!song.data('loaded-song')) {
-            song.data('loaded-song', true);
-            loadAlliTunesData();
-            function toggleLyrics(field, button, animation) {
-                let caret = button.find('.glyphicon');
-                let text = button.find('.text-open');
-                if (caret.hasClass('glyphicon-triangle-bottom')) {
-                    caret.removeClass('glyphicon-triangle-bottom');
-                    caret.addClass('glyphicon-triangle-top');
-                    text.text(gettext('Close'));
-                    field.find('.long-text-value').show(animation);
-                } else {
-                    caret.removeClass('glyphicon-triangle-top');
-                    caret.addClass('glyphicon-triangle-bottom');
-                    text.text(gettext('Open {thing}').replace('{thing}', gettext('Lyrics').toLowerCase()));
-                    field.find('.long-text-value').hide(animation);
-                }
-            }
-            song.find('[data-field$="lyrics"]').each(function() {
-                let field = $(this);
-                let button = $('<a href="#show" class="pull-right padding20"><p><span class="glyphicon glyphicon-triangle-top"></span> <span class="text-open"></span></p></a>');
-                field.find('.long-text-title').before(button);
-                toggleLyrics(field, button);
-                button.click(function(e) {
-                    e.preventDefault();
-                    toggleLyrics(field, button, 'fast');
-                    return false;
-                });
-            });
-        }
-    });
-}
-
-// *****************************************
 // *****************************************
 // All Stars
 // *****************************************
@@ -159,7 +119,9 @@ function collectible_show_icon() {
 // }
 
 // Costume desginers
-function aprilFoolsTakeOverDivs() {
+function _aprilFoolsTakeOverDivs() {
+    // Logo
+    $('.home-site-logo img').prop('src', 'https://i.imgur.com/STkC3iu.png');
     // Homepage art
     let arts = [
         'https://i.idol.st/static/aprilfools/aprilfools.png',
