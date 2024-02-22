@@ -4,13 +4,71 @@
 // *****************************************
 // *****************************************
 
-// pass
-
 // *****************************************
 // *****************************************
 // Love Live!
 // *****************************************
 // *****************************************
+
+// *****************************************
+// *****************************************
+// SIF2
+// *****************************************
+// *****************************************
+
+function loadSIF2Card() {
+    // Change sentences based on skill level
+    $('.skill-per-card:not(.loaded)').each(function() {
+        let skillDiv = $(this);
+        skillDiv.addClass('loaded');
+        let changeLevelP = skillDiv.find('.change-level');
+        let levelSentenceSpan = skillDiv.find('.skill-level');
+        let decreaseLevelButton = skillDiv.find('[href="#changeSkillLevelDecrease"]');
+        let increaseLevelButton = skillDiv.find('[href="#changeSkillLevelIncrease"]');
+        let sentences = window[skillDiv.data('skill-sentences-variable')];
+        function changeLevel(level) {
+            skillDiv.data('level', level);
+            levelSentenceSpan.text(gettext('Level {level}').replace('{level}', level));
+            skillDiv.find('.skill-sentence').html(sentences[level]);
+            if (hasLevel(level - 1)) {
+                decreaseLevelButton.removeClass('disabled');
+            } else {
+                decreaseLevelButton.addClass('disabled');
+            }
+            if (hasLevel(level + 1)) {
+                increaseLevelButton.removeClass('disabled');
+            } else {
+                increaseLevelButton.addClass('disabled');
+            }
+        }
+        function hasLevel(level) {
+            let skill = skillDiv.find('.skill').last();
+            return typeof(sentences[level]) != 'undefined';
+        }
+        changeLevel(1);
+        if (hasLevel(2)) {
+            changeLevelP.show();
+            decreaseLevelButton.unbind('click');
+            decreaseLevelButton.click(function(e) {
+                e.preventDefault();
+                if (hasLevel(skillDiv.data('level') - 1)) {
+                    changeLevel(skillDiv.data('level') - 1);
+                }
+                decreaseLevelButton.blur();
+                return false;
+            });
+            increaseLevelButton.unbind('click');
+            increaseLevelButton.click(function(e) {
+                e.preventDefault();
+                if (hasLevel(skillDiv.data('level') + 1)) {
+                    changeLevel(skillDiv.data('level') + 1);
+                }
+                increaseLevelButton.blur();
+                return false;
+            });
+        }
+    });
+}
 
 // *****************************************
 // *****************************************
