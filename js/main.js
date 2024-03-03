@@ -68,6 +68,14 @@ function loadSIF2Card() {
             });
         }
     });
+    // Remove statistics column on small screens
+    if ($(document).width() <= 768) {
+        $('[data-field="statistics"]:not(.loaded)').each(function() {
+            let statsRow = $(this);
+            statsRow.addClass('loaded');
+            statsRow.find('.flex-tr').first().remove();
+        });
+    }
 }
 
 // *****************************************

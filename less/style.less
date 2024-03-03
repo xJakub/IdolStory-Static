@@ -75,32 +75,6 @@ body {
     }
 }
 
-#navBarIDDropDowngames + .dropdown-menu .dropdown-header {
-    &:first-child {
-        margin-top: 5px;
-    }
-    padding-right: 80px;
-    font-size: 1.1em;
-    font-weight: bold;
-    background: #eee;
-    img, [class^="flaticon"] {
-        text-align: center;
-        font-size: 28px;
-        width: 40px;
-        height: 40px;
-        margin: -8px 0;
-        margin-right: -60px;
-        float: right;
-    }
-}
-#navBarIDDropDownallstars {
-    img {
-        height: 30px;
-        margin: -9px 0 -5px 0;
-        border-radius: 10px;
-    }
-}
-
 /******************************************/
 /* Generic names, appear on multiple pages */
 
@@ -231,8 +205,25 @@ body.homepage {
 /* Idol */
 
 [data-item="idol"] {
+    .idol-wrapper {
+        display: inline-block;
+        position: relative;
+    }
     .idol-image {
         border-radius: 50%;
+    }
+    .mini-symbol {
+        position: absolute;
+        right: -5%;
+        top: -5%;
+        width: 30%;
+        height: 30%;
+        border-radius: 50%;
+        border: 3px solid;
+        background-color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 70%;
     }
 }
 
