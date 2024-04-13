@@ -100,7 +100,7 @@ function loadALLSTARSCard() {
             levelSentenceSpan.text(gettext('Level {level}').replace('{level}', level));
             skillDiv.find('.skill').each(function() {
                 let skill = $(this);
-                let sentences = window['skill_sentences_' + skill.data('skill-id') + '_' + skill.data('language')];
+                let sentences = window['skill_sentences_' + skill.data('skill-id') + '_' + skill.data('language').replace('-', '_')];
                 skill.find('.sentence').html(sentences[level]);
             });
             if (hasLevel(level - 1)) {
@@ -116,7 +116,7 @@ function loadALLSTARSCard() {
         }
         function hasLevel(level) {
             let skill = skillDiv.find('.skill').last();
-            let sentences = window['skill_sentences_' + skill.data('skill-id') + '_' + skill.data('language')];
+            let sentences = window['skill_sentences_' + skill.data('skill-id') + '_' + skill.data('language').replace('-', '_')];
             return typeof(sentences[level]) != 'undefined';
         }
         skillDiv.addClass('loaded');
@@ -156,6 +156,16 @@ function collectible_show_idolized_icon() {
 
 function collectible_show_icon() {
     $('.h1-page-title-image-allstarscollectiblecard_add, .h1-page-title-image-allstarscollectiblecard_add_ajax').prop(
+        'src', collectible_variables.image_url);
+}
+
+function sif2_collectible_show_idolized_icon() {
+    $('.h1-page-title-image-sif2collectiblecard_add, .h1-page-title-image-sif2collectiblecard_add_ajax').prop(
+        'src', collectible_variables.icon_image_idolized_url);
+}
+
+function sif2_collectible_show_icon() {
+    $('.h1-page-title-image-sif2collectiblecard_add, .h1-page-title-image-sif2collectiblecard_add_ajax').prop(
         'src', collectible_variables.image_url);
 }
 
@@ -214,42 +224,6 @@ function _aprilFoolsTakeOverDivs() {
     });
 }
 
-// *****************************************
-// TODO
-
-
-// *****************************************
-// Loaded in all pages
-
-function mergedFilterIdolUnitSubUnit() {
-    modalCuteFormSeparators({
-        'by_value_prefixes': [
-            ['idol', []],
-            ['i_unit', [2]],
-            ['i_subunit', [2]],
-        ],
-        'hr': true,
-        'margin': true,
-    });
-}
-
-function favoriteCharacterSeparators() {
-    console.log('fav char sep');
-    modalCuteFormSeparators({
-        'callback_before': function(elts) {
-            console.log('before');
-        },
-        'by_name_prefix_nth': [
-            ['id_favorite_character', [0, 9, 18, 27, 78, 83]],
-        ],
-        'hr': true,
-        'margin': false,
-    });
-}
-
-$(document).ready(function() {
-    //favoriteCharacterSeparators();
-});
 
 // // *****************************************
 // // Utils for versions
