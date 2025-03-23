@@ -169,6 +169,16 @@ function sif2_collectible_show_icon() {
         'src', collectible_variables.image_url);
 }
 
+function linklike_collectible_show_idolized_icon() {
+    $('.h1-page-title-image-linklikecollectiblecard_add, .h1-page-title-image-linklikecollectiblecard_add_ajax').prop(
+        'src', collectible_variables.icon_image_idolized_url);
+}
+
+function linklike_collectible_show_icon() {
+    $('.h1-page-title-image-linklikecollectiblecard_add, .h1-page-title-image-linklikecollectiblecard_add_ajax').prop(
+        'src', collectible_variables.image_url);
+}
+
 // *****************************************
 // Seasons
 
