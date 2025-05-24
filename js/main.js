@@ -475,9 +475,10 @@ function _aprilFoolsTakeOverDivs() {
 // }
 
 // Set internal wiki links as .internal-wiki-link so that we don't show them as external.
-originalAfterLoadWiki = afterLoadWiki;
+oldAfterLoadWiki = afterLoadWiki;
 afterLoadWiki = function(page) {
-    page.find('a:not(.internal-wiki-link)[href^="#"]').addClass('internal-wiki-link');
-    page.find('a:not(.internal-wiki-link)[href^="/"]').addClass('internal-wiki-link');
-    originalAfterLoadWiki(page);
+    page.find('a:not(.internal-wiki-link)').filter(function()  {
+        return this.hostname === location.hostname || this.hostname == 'idol.st';
+    }).addClass('internal-wiki-link');
+    oldAfterLoadWiki(page);
 }
