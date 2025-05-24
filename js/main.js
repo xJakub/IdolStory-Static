@@ -473,3 +473,11 @@ function _aprilFoolsTakeOverDivs() {
 //         });
 //     }
 // }
+
+// Set internal wiki links as .internal-wiki-link so that we don't show them as external.
+originalAfterLoadWiki = afterLoadWiki;
+afterLoadWiki = function(page) {
+    page.find('a:not(.internal-wiki-link)[href^="#"]').addClass('internal-wiki-link');
+    page.find('a:not(.internal-wiki-link)[href^="/"]').addClass('internal-wiki-link');
+    originalAfterLoadWiki(page);
+}
